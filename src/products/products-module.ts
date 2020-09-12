@@ -1,9 +1,17 @@
 import * as express from 'express';
-import { ProductModel } from '../models/products-model';
+import { ProductModel } from './products-model';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {});
+router.get('/', (req, res) => {
+  ProductModel.find().exec((err, products) => {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.status(200).json(products);
+    }
+  });
+});
 
 router.post('/', (req, res) => {
   const product = new ProductModel(req.body);
