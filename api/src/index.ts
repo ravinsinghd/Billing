@@ -3,6 +3,8 @@ const cors = require('cors');
 import * as mongoose from 'mongoose';
 
 const productsModule = require('./modules/products-module');
+const stockModule = require('./stocks/stocks-module');
+const billModule = require('./bills/bills-module');
 
 const app = express();
 const port = 8081;
@@ -12,6 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/products', productsModule);
+app.use('/stocks', stockModule);
+app.use('/bills', billModule);
 
 function connectToDB() {
   mongoose.connect('mongodb://localhost:27017/billing', {
