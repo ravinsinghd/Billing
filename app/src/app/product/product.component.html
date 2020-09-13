@@ -1,9 +1,19 @@
-<div>
-  <h2>Products</h2>
-</div>
-<div>
+<div class="m24">
   <div>
-    <button>Add Product</button>
+    <h2>Products</h2>
   </div>
-  <table></table>
+  <div>
+    <div>
+      <button routerLink="/product/create">Add Product</button>
+    </div>
+    <div class="mt24">
+      <table class="table-style1">
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

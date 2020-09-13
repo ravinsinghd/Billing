@@ -1,0 +1,23 @@
+<div class="m24">
+  <div>
+    <h2>Create Product</h2>
+  </div>
+  <div>
+    <div class="mt24">
+      <div class="mb24">
+        <label for="name">Product Name</label>
+        <br />
+        <input type="text" id="name" [(ngModel)]="productName" />
+      </div>
+      <div class="mb24">
+        <label for="shortName">Product Short Name</label>
+        <br />
+        <input type="text" id="shortName" [(ngModel)]="shortName" />
+      </div>
+      <div>
+        <button class="mr12" (click)="createProduct()">Create</button>
+        <button routerLink="/product">Back</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,11 @@ import { environment } from "../../environments/environment";
 export class HttpService {
   constructor(private httpClient: HttpClient) {}
 
-  get(partialURL: string) {
-    return this.httpClient.get(`${environment.apiURL}${partialURL}`);
+  getRequest<T>(partialURL: string) {
+    return this.httpClient.get<T>(`${environment.apiURL}${partialURL}`);
+  }
+
+  postRequest<T>(partialURL: string, data: T) {
+    return this.httpClient.post<T>(`${environment.apiURL}${partialURL}`, data);
   }
 }

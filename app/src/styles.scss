@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+.m12 {
+  margin: 12px;
+}
+
+.m24 {
+  margin: 24px;
+}
+
+.mb24 {
+  margin-bottom: 24px;
+}
+
+.mt24 {
+  margin-top: 24px;
+}
+
+.mr12 {
+  margin-right: 12px;
+}
+
+.table-style1 {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  width: 100%;
+  td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    &:hover {
+      background-color: rgb(204 204 204 / 31%);
+      cursor: pointer;
+    }
+  }
+}
