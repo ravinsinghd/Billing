@@ -16,3 +16,27 @@ export interface Inventory {
 export interface InventoryForList extends Inventory {
   productName: string;
 }
+
+export interface ProductNameIdMap {
+  [productName: string]: string;
+}
+
+export interface InventoryProductIdMap {
+  [productId: string]: Inventory;
+}
+
+export interface BillItem {
+  productId: string;
+  productName: string;
+  quantity: number;
+  pricePerItem: number;
+  totalPrice: number;
+}
+
+export interface Bill {
+  billNumber: number | null;
+  customerId: string | null;
+  items: BillItem[];
+  totalAmount: number;
+  roundedAmount: number;
+}

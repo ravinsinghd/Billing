@@ -28,6 +28,23 @@ body {
 .mr12 {
   margin-right: 12px;
 }
+.ml48 {
+  margin-left: 48px;
+}
+
+.w20p {
+  width: 20%;
+}
+.w50P {
+  width: 50%;
+}
+.w75p {
+  width: 75%;
+}
+
+.bol {
+  border-left: 1px solid #ccc;
+}
 
 .table-style1 {
   border: 1px solid #ccc;
@@ -45,4 +62,20 @@ body {
     padding: 8px;
     border: 1px solid #ccc;
   }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-a-c {
+  align-items: center;
+}
+
+.flex-a-e {
+  align-items: flex-end;
+}
+
+.tac {
+  text-align: center;
 }

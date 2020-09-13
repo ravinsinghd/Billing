@@ -1,1 +1,68 @@
-<p>billing works!</p>
+<div class="m24">
+  <div>
+    <h2>New Bill</h2>
+    <div></div>
+  </div>
+  <div class="mt24 flex flex-a-e">
+    <div class="mr12">
+      <label for="product">Product</label>
+      <br />
+      <input list="products" id="product" [(ngModel)]="productName" />
+      <datalist id="products">
+        <option
+          *ngFor="let product of products"
+          [value]="product.name"
+        ></option>
+      </datalist>
+    </div>
+    <div class="mr12">
+      <label for="productQuantity">Quantity</label>
+      <br />
+      <input type="number" [(ngModel)]="productQuantity" id="productQuantity" />
+    </div>
+    <div><button (click)="addItem()">Add Item</button></div>
+  </div>
+  <div class="mt24 flex">
+    <div class="w75p">
+      <table class="table-style1">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price per unit</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container
+            *ngIf="
+              currentBill && currentBill.items && currentBill.items.length > 0
+            "
+          >
+            <tr *ngFor="let item of currentBill.items">
+              <td>{{ item.productName }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.pricePerItem }}</td>
+              <td>{{ item.totalPrice }}</td>
+
+              <td>
+                <button>Edit</button>
+                <button>Remove</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Total</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <div class="ml48 w20p bol">
+      <div class="tac">
+        <h2>Amount To Pay</h2>
+      </div>
+      <div class="tac"></div>
+    </div>
+  </div>
+</div>
