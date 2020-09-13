@@ -62,7 +62,7 @@ export class BillingComponent implements OnInit {
       quantity: this.productQuantity,
       totalPrice: total,
     };
-    this.currentBill.items.push(billItem);
+    this.currentBill.items = [...this.currentBill.items, billItem];
     this.productName = "";
     this.productQuantity = 0;
   }

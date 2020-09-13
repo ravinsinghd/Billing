@@ -52,7 +52,12 @@
               </td>
             </tr>
             <tr>
-              <td>Total</td>
+              <td colspan="3">Total</td>
+              <td>{{ currentBill?.items | total }}</td>
+            </tr>
+            <tr>
+              <td colspan="3">Rounded Total</td>
+              <td>{{ currentBill?.items | roundedTotal }}</td>
             </tr>
           </ng-container>
         </tbody>
@@ -62,7 +67,9 @@
       <div class="tac">
         <h2>Amount To Pay</h2>
       </div>
-      <div class="tac"></div>
+      <div class="tac">
+        <span class="total">{{ currentBill?.items | roundedTotal }}</span> Rs
+      </div>
     </div>
   </div>
 </div>
