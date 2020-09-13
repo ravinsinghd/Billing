@@ -12,3 +12,7 @@ export interface Inventory {
   sellingPricePerUnit: number;
   expiryDate: Date;
 }
+
+export interface InventoryForList extends Inventory {
+  productName: string;
+}

@@ -8,9 +8,22 @@
     </div>
     <div class="mt24">
       <table class="table-style1">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Expiry Date</th>
+            <th>Quantity</th>
+            <th>Purchase Date</th>
+            <th>Price</th>
+          </tr>
+        </thead>
         <tbody>
           <tr *ngFor="let inventory of inventories">
-            <td>{{ inventory.name }}</td>
+            <td>{{ inventory.productName }}</td>
+            <td>{{ inventory.expiryDate | date: "dd-MM-yyyy" }}</td>
+            <td>{{ inventory.quantity }}</td>
+            <td>{{ inventory.purchaseDate | date: "dd-MM-yyyy" }}</td>
+            <td>{{ inventory.sellingPricePerUnit }}</td>
           </tr>
         </tbody>
       </table>
