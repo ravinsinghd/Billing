@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { StockModel } from './stocks-model';
+import { Stock, StockModel } from './stocks-model';
 
 const router = express.Router();
 
@@ -14,7 +14,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const stock = new StockModel(req.body);
+  const stock: Stock = new StockModel(req.body);
+  stock.createdDate = new Date();
+  stock.modifiedDate = new Date();
   stock.validate((err) => {
     if (err) {
       res.status(400).json(err);

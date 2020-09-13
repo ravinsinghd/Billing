@@ -1,0 +1,61 @@
+<div class="m24">
+  <div>
+    <h2>Create Inventory</h2>
+  </div>
+  <div>
+    <div class="mt24">
+      <div class="mb24">
+        <label for="product">Product</label>
+        <br />
+        <input list="products" id="product" [(ngModel)]="productName" />
+        <datalist id="products">
+          <option
+            *ngFor="let product of products"
+            [value]="product.name"
+          ></option>
+        </datalist>
+      </div>
+
+      <div class="mb24">
+        <label for="quantity">Quantity</label>
+        <br />
+        <input type="number" min="0" id="quantity" [(ngModel)]="quantity" />
+      </div>
+      <div class="mb24">
+        <label for="costPerUnit">Cost Per Unit</label>
+        <br />
+        <input
+          type="number"
+          min="0"
+          id="costPerUnit"
+          [(ngModel)]="costPerUnit"
+        />
+      </div>
+      <div class="mb24">
+        <label for="sellingPricePerUnit">Selling Price Per Unit</label>
+        <br />
+        <input
+          type="number"
+          min="0"
+          id="sellingPricePerUnit"
+          [(ngModel)]="sellingPricePerUnit"
+        />
+      </div>
+      <div class="mb24">
+        <label for="purchaseDate">Purchase Date</label>
+        <br />
+        <input type="date" id="purchaseDate" [(ngModel)]="purchaseDate" />
+      </div>
+      <div class="mb24">
+        <label for="expiryDate">Expiry Date</label>
+        <br />
+        <input type="date" id="expiryDate" [(ngModel)]="expiryDate" />
+      </div>
+
+      <div>
+        <button class="mr12" (click)="saveInventory()">Create</button>
+        <button routerLink="/inventory">Back</button>
+      </div>
+    </div>
+  </div>
+</div>

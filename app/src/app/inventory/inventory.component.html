@@ -1,1 +1,19 @@
-<p>inventory works!</p>
+<div class="m24">
+  <div>
+    <h2>Inventory</h2>
+  </div>
+  <div>
+    <div>
+      <button routerLink="/inventory/create">Add inventory</button>
+    </div>
+    <div class="mt24">
+      <table class="table-style1">
+        <tbody>
+          <tr *ngFor="let inventory of inventories">
+            <td>{{ inventory.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
