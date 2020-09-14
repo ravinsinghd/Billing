@@ -66,7 +66,22 @@ body {
     border: 1px solid #ccc;
   }
 }
-
+.table-style2 {
+  border: 1px dashed #ccc;
+  border-collapse: collapse;
+  td {
+    padding: 8px;
+    border: 1px dashed #ccc;
+    &:hover {
+      background-color: rgb(204 204 204 / 31%);
+      cursor: pointer;
+    }
+  }
+  th {
+    padding: 8px;
+    border: 1px dashed #ccc;
+  }
+}
 .flex {
   display: flex;
 }
@@ -81,6 +96,9 @@ body {
 
 .tac {
   text-align: center;
+}
+.tar {
+  text-align: right;
 }
 
 .big-button {

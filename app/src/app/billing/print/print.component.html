@@ -1,0 +1,35 @@
+<div>
+  <table class="table-style2">
+    <thead>
+      <tr>
+        <td colspan="5" class="tac">Aadhira clinic</td>
+      </tr>
+      <tr>
+        <th>SNo</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price per Item</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <ng-container *ngIf="currentBill && currentBill.items">
+      <tbody>
+        <tr *ngFor="let item of currentBill.items; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.productId }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.pricePerItem }}</td>
+          <td>{{ item.totalPrice }}</td>
+        </tr>
+        <tr>
+          <td colspan="4">Total</td>
+          <td>{{ currentBill.totalAmount }}</td>
+        </tr>
+        <tr>
+          <td colspan="4">Rounded Total</td>
+          <td>{{ currentBill.roundedAmount }}</td>
+        </tr>
+      </tbody>
+    </ng-container>
+  </table>
+</div>
