@@ -70,6 +70,11 @@
       <div class="tac">
         <span class="total">{{ currentBill?.items | roundedTotal }}</span> Rs
       </div>
+      <div>
+        <button class="big-button ml24 mt24" (click)="saveAndPrint()">
+          Save & Print
+        </button>
+      </div>
     </div>
   </div>
 </div>

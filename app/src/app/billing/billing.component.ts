@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { zip } from "rxjs";
 import { HttpService } from "../shared/http.service";
 import {
@@ -29,7 +30,7 @@ export class BillingComponent implements OnInit {
   productName: string = "";
   productQuantity: number = 0;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private router: Router) {}
 
   ngOnInit() {
     this.getProductAndInventories();
@@ -65,5 +66,18 @@ export class BillingComponent implements OnInit {
     this.currentBill.items = [...this.currentBill.items, billItem];
     this.productName = "";
     this.productQuantity = 0;
+  }
+
+  saveAndPrint() {
+    const bill: Bill = {
+      billNumber: null,
+      customerId: null,
+      totalAmount: null,
+      roundedAmount: null,
+      items: this.currentBill.items,
+    };
+    this.httpService.postRequest<Bill>("bills", bill).subscribe((bill) => {
+      this.router.navigate([`/billing/print/${bill._id}`]);
+    });
   }
 }

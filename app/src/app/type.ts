@@ -37,6 +37,7 @@ export interface Bill {
   billNumber: number | null;
   customerId: string | null;
   items: BillItem[];
-  totalAmount: number;
-  roundedAmount: number;
+  totalAmount: number | null;
+  roundedAmount: number | null;
+  _id?: string;
 }
