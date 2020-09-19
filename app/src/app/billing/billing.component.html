@@ -59,15 +59,14 @@
               currentBill && currentBill.items && currentBill.items.length > 0
             "
           >
-            <tr *ngFor="let item of currentBill.items">
+            <tr *ngFor="let item of currentBill.items; let i = index">
               <td>{{ item.productName }}</td>
               <td>{{ item.quantity }}</td>
               <td>{{ item.pricePerItem }}</td>
               <td>{{ item.totalPrice }}</td>
 
               <td>
-                <button>Edit</button>
-                <button>Remove</button>
+                <button (click)="removeBillItem(i)">Remove</button>
               </td>
             </tr>
             <tr>

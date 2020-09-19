@@ -69,6 +69,10 @@ export class BillingComponent implements OnInit {
     this.currentBill.items = [...this.currentBill.items, billItem];
     this.productName = "";
     this.productQuantity = 0;
+    const productField = document.getElementById("product");
+    if (productField) {
+      productField.focus();
+    }
   }
 
   saveAndPrint() {
@@ -97,5 +101,10 @@ export class BillingComponent implements OnInit {
           (customer: Customer) => customer.mobileNumber
         );
       });
+  }
+
+  removeBillItem(index: number) {
+    this.currentBill.items.splice(index, 1);
+    this.currentBill.items = [...this.currentBill.items];
   }
 }
