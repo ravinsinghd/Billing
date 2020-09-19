@@ -4,6 +4,25 @@
     <div></div>
   </div>
   <div class="mt24 flex flex-a-e">
+    <div>
+      <label for="mobileNumber">Mobile Number</label>
+      <br />
+      <input
+        type="text"
+        [(ngModel)]="searchNumber"
+        (change)="searchMobileNumber()"
+        id="mobileNumber"
+        list="mobileNumbers"
+      />
+      <datalist id="mobileNumbers">
+        <option
+          *ngFor="let mobileNumber of mobileNumbers"
+          [value]="mobileNumber"
+        ></option>
+      </datalist>
+    </div>
+  </div>
+  <div class="mt24 flex flex-a-e">
     <div class="mr12">
       <label for="product">Product</label>
       <br />

@@ -5,6 +5,7 @@ import { HttpService } from "../shared/http.service";
 import {
   Bill,
   BillItem,
+  Customer,
   Inventory,
   InventoryProductIdMap,
   Product,
@@ -29,6 +30,8 @@ export class BillingComponent implements OnInit {
   products: Product[] = [];
   productName: string = "";
   productQuantity: number = 0;
+  mobileNumbers = [];
+  searchNumber = "";
 
   constructor(private httpService: HttpService, private router: Router) {}
 
@@ -79,5 +82,20 @@ export class BillingComponent implements OnInit {
     this.httpService.postRequest<Bill>("bills", bill).subscribe((bill) => {
       this.router.navigate([`/billing/print/${bill._id}`]);
     });
+  }
+
+  searchMobileNumber() {
+    const customerSearch: Customer = {
+      city: "",
+      mobileNumber: this.searchNumber,
+      name: "",
+    };
+    this.httpService
+      .postRequest<Customer>("customers/search", customerSearch)
+      .subscribe((result: any) => {
+        this.mobileNumbers = result.map(
+          (customer: Customer) => customer.mobileNumber
+        );
+      });
   }
 }
