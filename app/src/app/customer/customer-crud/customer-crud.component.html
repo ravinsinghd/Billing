@@ -1,0 +1,31 @@
+<div class="m24">
+  <div>
+    <h2>Create Inventory</h2>
+  </div>
+  <div>
+    <div class="mt24">
+      <div class="mb24">
+        <label for="name">Name</label>
+        <br />
+        <input type="text" id="name" [(ngModel)]="customerName" />
+      </div>
+
+      <div class="mb24">
+        <label for="quantity">Mobile Number</label>
+        <br />
+        <input type="text" id="mobile" [(ngModel)]="mobileNumber" />
+      </div>
+
+      <div class="mb24">
+        <label for="city">City</label>
+        <br />
+        <input type="text" id="city" [(ngModel)]="city" />
+      </div>
+
+      <div>
+        <button class="mr12" (click)="saveCustomer()">Create</button>
+        <button routerLink="/customer">Back</button>
+      </div>
+    </div>
+  </div>
+</div>

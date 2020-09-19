@@ -41,3 +41,9 @@ export interface Bill {
   roundedAmount: number | null;
   _id?: string;
 }
+
+export interface Customer {
+  name: string;
+  mobileNumber: string;
+  city: string;
+}

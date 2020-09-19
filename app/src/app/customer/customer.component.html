@@ -1,0 +1,28 @@
+<div class="m24">
+  <div>
+    <h2>Customer</h2>
+  </div>
+  <div>
+    <div>
+      <button routerLink="/customer/create">Add customer</button>
+    </div>
+    <div class="mt24">
+      <table class="table-style1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.mobileNumber }}</td>
+            <td>{{ customer.city }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
