@@ -13,6 +13,7 @@ const port = 8081;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public'))
 
 app.use('/products', productsModule);
 app.use('/stocks', stockModule);
