@@ -7,19 +7,25 @@
     <div>
       <label for="mobileNumber">Mobile Number</label>
       <br />
-      <input
-        type="text"
-        [(ngModel)]="searchNumber"
-        (change)="searchMobileNumber()"
-        id="mobileNumber"
-        list="mobileNumbers"
-      />
-      <datalist id="mobileNumbers">
-        <option
-          *ngFor="let mobileNumber of mobileNumbers"
-          [value]="mobileNumber"
-        ></option>
-      </datalist>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Mobile Number"
+          [matAutocomplete]="auto"
+          [(ngModel)]="searchNumber"
+          (change)="searchMobileNumber()"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let mobileNumber of mobileNumbers"
+            [value]="mobileNumber"
+          >
+            {{ mobileNumber }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
     </div>
   </div>
   <div class="mt24 flex flex-a-e">

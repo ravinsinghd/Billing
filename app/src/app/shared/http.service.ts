@@ -15,4 +15,8 @@ export class HttpService {
   postRequest<T>(partialURL: string, data: T) {
     return this.httpClient.post<T>(`${environment.apiURL}${partialURL}`, data);
   }
+
+  deleteRequest(partialURL: string, id: string) {
+    return this.httpClient.delete(`${environment.apiURL}${partialURL}/${id}`);
+  }
 }

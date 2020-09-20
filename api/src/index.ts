@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 import * as mongoose from 'mongoose';
 
-const productsModule = require('./modules/products-module');
+const productsModule = require('./products/products-module');
 const stockModule = require('./stocks/stocks-module');
 const billModule = require('./bills/bills-module');
 const customerModule = require('./customers/customers.module');
@@ -13,7 +13,7 @@ const port = 8081;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.use('/products', productsModule);
 app.use('/stocks', stockModule);

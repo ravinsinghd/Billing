@@ -3,6 +3,17 @@ import { ProductModel } from './products-model';
 
 const router = express.Router();
 
+router.delete('/:productId', (req, res) => {
+  const params = req.params;
+  ProductModel.findByIdAndDelete(params.productId, (err, result) => {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.status(200).json(result);
+    }
+  });
+});
+
 router.get('/', (req, res) => {
   ProductModel.find().exec((err, products) => {
     if (err) {
