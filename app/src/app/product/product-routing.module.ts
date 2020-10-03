@@ -10,6 +10,10 @@ const routes: Routes = [
     path: "create",
     component: ProductCrudComponent,
   },
+  {
+    path: "create/:productId",
+    component: ProductCrudComponent,
+  },
 ];
 
 @NgModule({

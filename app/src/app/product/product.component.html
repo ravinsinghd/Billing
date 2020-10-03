@@ -20,7 +20,11 @@
             <td class="action-cell">
               <div class="action-buttons">
                 <div class="mr24">
-                  <button mat-icon-button class="button-xs">
+                  <button
+                    mat-icon-button
+                    class="button-xs"
+                    (click)="editProduct(product)"
+                  >
                     <mat-icon>create</mat-icon>
                   </button>
                 </div>

@@ -41,4 +41,21 @@ router.post('/', (req, res) => {
   });
 });
 
+router.post('/update', (req, res) => {
+  const product = new ProductModel(req.body);
+  product.validate((err) => {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      ProductModel.findByIdAndUpdate(req.body._id, req.body, { new: true }, (err, result) => {
+        if (err) {
+          res.status(400).json(err);
+        } else {
+          res.status(200).json(result);
+        }
+      });
+    }
+  });
+});
+
 module.exports = router;

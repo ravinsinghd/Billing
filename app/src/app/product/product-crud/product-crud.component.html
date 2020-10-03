@@ -15,7 +15,10 @@
         <input type="text" id="shortName" [(ngModel)]="shortName" />
       </div>
       <div>
-        <button class="mr12" (click)="createProduct()">Create</button>
+        <button class="mr12" (click)="createProduct()">
+          <span *ngIf="isEdit">Update</span>
+          <span *ngIf="!isEdit">Create</span>
+        </button>
         <button routerLink="/product">Back</button>
       </div>
     </div>
