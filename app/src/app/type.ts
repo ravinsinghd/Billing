@@ -11,6 +11,7 @@ export interface Inventory {
   costPerUnit: number;
   sellingPricePerUnit: number;
   expiryDate: Date;
+  _id?: string;
 }
 
 export interface InventoryForList extends Inventory {

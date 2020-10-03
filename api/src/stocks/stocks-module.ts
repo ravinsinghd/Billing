@@ -1,7 +1,6 @@
 import * as express from 'express';
 import { Stock, StockModel } from './stocks-model';
 
-
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -29,6 +28,17 @@ router.post('/', (req, res) => {
           res.status(200).json(result);
         }
       });
+    }
+  });
+});
+
+router.delete('/:inventoryId', (req, res) => {
+  const params = req.params;
+  StockModel.findByIdAndDelete(params.inventoryId, (err, result) => {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.status(200).json(result);
     }
   });
 });

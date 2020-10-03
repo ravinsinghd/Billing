@@ -15,9 +15,9 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
 
   constructor(
+    private router: Router,
     private httpService: HttpService,
     private matSnackBar: MatSnackBar,
-    private router: Router,
     private commonServiceService: CommonServiceService
   ) {}
 

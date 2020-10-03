@@ -1,6 +1,9 @@
 <div class="m24">
   <div>
-    <h2>Create Inventory</h2>
+    <h2>
+      <span *ngIf="isEdit">Edit</span>
+      <span *ngIf="!isEdit">Create</span> Inventory
+    </h2>
   </div>
   <div>
     <div class="mt24">
@@ -53,7 +56,10 @@
       </div>
 
       <div>
-        <button class="mr12" (click)="saveInventory()">Create</button>
+        <button class="mr12" (click)="saveInventory()">
+          <span *ngIf="isEdit">Update</span>
+          <span *ngIf="!isEdit">Create</span>
+        </button>
         <button routerLink="/inventory">Back</button>
       </div>
     </div>

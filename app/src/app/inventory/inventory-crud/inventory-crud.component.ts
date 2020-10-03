@@ -16,6 +16,7 @@ export class InventoryCrudComponent implements OnInit {
   sellingPricePerUnit: number | null = null;
   purchaseDate: Date | null = null;
   expiryDate: Date | null = null;
+  isEdit = false;
 
   constructor(private httpService: HttpService, private router: Router) {}
 

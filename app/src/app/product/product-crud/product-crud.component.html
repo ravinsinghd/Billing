@@ -1,6 +1,9 @@
 <div class="m24">
   <div>
-    <h2>Create Product</h2>
+    <h2>
+      <span *ngIf="isEdit">Edit</span>
+      <span *ngIf="!isEdit">Create</span>&nbsp;Product
+    </h2>
   </div>
   <div>
     <div class="mt24">

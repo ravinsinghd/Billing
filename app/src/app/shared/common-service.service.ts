@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { BehaviorSubject, Subject } from "rxjs";
-import { Product } from "../type";
+import { map } from "rxjs/operators";
+import { Inventory, Product } from "../type";
 import { HttpService } from "./http.service";
 
 @Injectable({
@@ -9,6 +10,8 @@ import { HttpService } from "./http.service";
 })
 export class CommonServiceService {
   allProducts$ = new BehaviorSubject<Product[]>([]);
+  allInventories$ = new BehaviorSubject<Inventory[]>([]);
+  productsAsObject$ = this.getProductsAsObject();
 
   constructor(
     private httpService: HttpService,
@@ -21,6 +24,27 @@ export class CommonServiceService {
     this.httpService.getRequest<Product[]>("products").subscribe((products) => {
       this.allProducts$.next(products);
     });
+  }
+
+  getAllInventory() {
+    this.httpService
+      .getRequest<Inventory[]>("stocks")
+      .subscribe((inventories) => {
+        this.allInventories$.next(inventories);
+      });
+  }
+
+  getProductsAsObject() {
+    return this.allProducts$.pipe(
+      map((products) => {
+        return products.reduce((collection: any, product) => {
+          if (product._id) {
+            collection[product._id] = product.name;
+          }
+          return collection;
+        }, {});
+      })
+    );
   }
 
   showMessage(message: string) {
