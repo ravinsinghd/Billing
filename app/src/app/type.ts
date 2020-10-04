@@ -6,11 +6,12 @@ export interface Product {
 
 export interface Inventory {
   productId: string;
-  purchaseDate: Date;
+  purchaseDate: Date | string;
   quantity: number;
   costPerUnit: number;
   sellingPricePerUnit: number;
-  expiryDate: Date;
+  expiryDate: Date | string;
+  createdDate?: Date | string;
   _id?: string;
 }
 

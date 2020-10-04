@@ -21,6 +21,8 @@ export class InventoryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.commonServiceService.getAllProducts();
+    this.commonServiceService.getAllInventory();
     this.getProductAndInventories();
   }
 
