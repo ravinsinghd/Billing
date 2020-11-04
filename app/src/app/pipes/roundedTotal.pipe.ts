@@ -13,6 +13,6 @@ export class RoundedTotalPipe implements PipeTransform {
       total = total + item.totalPrice;
       return total;
     }, 0);
-    return Math.floor(total);
+    return total;
   }
 }

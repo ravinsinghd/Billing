@@ -1,4 +1,5 @@
 import * as express from 'express';
+import { StockModel } from '../stocks/stocks-model';
 import { BillModel } from './bills-model';
 import { updateBillData } from './helper';
 
@@ -36,6 +37,14 @@ router.post('/', (req, res) => {
         if (err) {
           res.status(400).json(err);
         } else {
+          bill.items.forEach((item) => {
+            StockModel.findOne({ productId: item.productId }).exec((err, stock) => {
+              if (stock) {
+                stock.quantity = stock.quantity - item.quantity;
+                StockModel.updateOne({ productId: item.productId }, stock, (err, result) => {});
+              }
+            });
+          });
           res.status(200).json(result);
         }
       });

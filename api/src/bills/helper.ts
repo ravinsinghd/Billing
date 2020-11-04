@@ -9,6 +9,6 @@ export function updateBillData(bill: Bill) {
   bill.billNumber = 100;
   bill.customerId = '100';
   bill.totalAmount = total;
-  bill.roundedAmount = Math.floor(total);
+  bill.roundedAmount = total;
   return bill;
 }
