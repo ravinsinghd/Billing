@@ -42,6 +42,9 @@ export class PrintComponent implements OnInit {
           return item;
         });
         this.currentBill = bill;
+        setTimeout(() => {
+          window.print();
+        }, 0);
       });
   }
 }

@@ -157,3 +157,10 @@ body {
   line-height: 20px !important;
   width: 20px !important;
 }
+
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+}
