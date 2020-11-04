@@ -16,7 +16,7 @@
       <tbody>
         <tr *ngFor="let item of currentBill.items; index as i">
           <td>{{ i + 1 }}</td>
-          <td>{{ item.productId }}</td>
+          <td>{{ item.productName }}</td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.pricePerItem }}</td>
           <td>{{ item.totalPrice }}</td>
@@ -24,10 +24,6 @@
         <tr>
           <td colspan="4">Total</td>
           <td>{{ currentBill.totalAmount }}</td>
-        </tr>
-        <tr>
-          <td colspan="4">Rounded Total</td>
-          <td>{{ currentBill.roundedAmount }}</td>
         </tr>
       </tbody>
     </ng-container>
