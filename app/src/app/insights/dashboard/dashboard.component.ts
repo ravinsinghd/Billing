@@ -22,8 +22,17 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     const todayDate = new Date();
     const todayISOString = todayDate.toISOString();
+    this.updateBills(todayISOString);
+  }
+  getRawBills() {
+    const dateValue: Date = this.billDate.value;
+    const dateIsoString = dateValue.toISOString();
+    this.updateBills(dateIsoString);
+  }
+
+  updateBills(isoString: string) {
     this.httpService
-      .getRequest<Bill[]>(`bills/raw/${todayISOString}`)
+      .getRequest<Bill[]>(`bills/raw/${isoString}`)
       .subscribe((bills) => {
         this.bills = bills;
         this.totalAmount = this.bills.reduce((total, bill) => {
