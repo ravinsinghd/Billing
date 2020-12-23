@@ -42,8 +42,8 @@ export interface Bill {
   totalAmount: number | null;
   roundedAmount: number | null;
   _id?: string;
-  createdDate: Date;
-  modifiedDate: Date;
+  createdDate?: Date;
+  modifiedDate?: Date;
 }
 
 export interface Customer {

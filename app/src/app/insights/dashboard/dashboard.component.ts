@@ -20,15 +20,19 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.httpService.getRequest<Bill[]>("bills").subscribe((bills) => {
-      this.bills = bills;
-      this.totalAmount = this.bills.reduce((total, bill) => {
-        if (!bill || !bill.totalAmount) {
+    const todayDate = new Date();
+    const todayISOString = todayDate.toISOString();
+    this.httpService
+      .getRequest<Bill[]>(`bills/raw/${todayISOString}`)
+      .subscribe((bills) => {
+        this.bills = bills;
+        this.totalAmount = this.bills.reduce((total, bill) => {
+          if (!bill || !bill.totalAmount) {
+            return total;
+          }
+          total = total + bill.totalAmount;
           return total;
-        }
-        total = total + bill.totalAmount;
-        return total;
-      }, 0);
-    });
+        }, 0);
+      });
   }
 }
