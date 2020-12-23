@@ -13,6 +13,8 @@ export interface Bill extends mongoose.Document {
   items: BillItem[];
   totalAmount: number;
   roundedAmount: number;
+  createdDate: Date;
+  modifiedDate: Date;
 }
 
 const billItemSchema = new mongoose.Schema<BillItem>({
@@ -28,6 +30,8 @@ const billSchema = new mongoose.Schema<Bill>({
   items: [billItemSchema],
   totalAmount: { type: Number, required: true },
   roundedAmount: { type: Number, required: true },
+  createdDate: { type: Date, required: false },
+  modifiedDate: { type: Date, required: false },
 });
 
 export const BillModel = mongoose.model<Bill>('Bill', billSchema);

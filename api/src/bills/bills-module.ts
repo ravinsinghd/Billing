@@ -29,6 +29,8 @@ router.get('/:billId', (req, res) => {
 router.post('/', (req, res) => {
   const bill = new BillModel(req.body);
   const updatedBill = updateBillData(bill);
+  updatedBill.createdDate = new Date();
+  updatedBill.modifiedDate = new Date();
   updatedBill.validate((err) => {
     if (err) {
       res.status(400).json(err);
