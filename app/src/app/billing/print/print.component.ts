@@ -13,6 +13,7 @@ import { Bill } from "src/app/type";
 export class PrintComponent implements OnInit {
   currentBill: Bill | null = null;
   productObjects: any;
+  isViewOnly: boolean | null | string = false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService,
@@ -27,6 +28,7 @@ export class PrintComponent implements OnInit {
       .pipe(
         map((params) => {
           const billId = params.get("billId");
+          this.isViewOnly = params.get("viewOnly");
           return billId;
         })
       )
@@ -42,9 +44,11 @@ export class PrintComponent implements OnInit {
           return item;
         });
         this.currentBill = bill;
-        setTimeout(() => {
-          window.print();
-        }, 0);
+        if (this.isViewOnly === "false" || this.isViewOnly === false) {
+          setTimeout(() => {
+            window.print();
+          }, 0);
+        }
       });
   }
 }

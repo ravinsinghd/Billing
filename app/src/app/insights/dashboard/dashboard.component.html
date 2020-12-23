@@ -13,24 +13,29 @@
       </mat-form-field>
       <button (click)="getRawBills()">Submit</button>
     </div>
-    <table class="table-style1">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Amount</th>
+    <div class="raw-bills">
+      <table class="table-style1">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr *ngFor="let bill of bills">
+          <td>{{ bill.createdDate | date: "dd-MM-yyyy  h:mm" }}</td>
+          <td>{{ bill.totalAmount }}</td>
+          <td><a href="/billing/print/{{ bill._id }}/true">View</a></td>
         </tr>
-      </thead>
-      <tr *ngFor="let bill of bills">
-        <td>{{ bill.createdDate | date: "dd-MM-yyyy  h:mm" }}</td>
-        <td>{{ bill.totalAmount }}</td>
-      </tr>
-      <tfoot>
-        <tr>
-          <th>Total</th>
-          <th>{{ totalAmount }}</th>
-        </tr>
-      </tfoot>
-    </table>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th>{{ totalAmount }}</th>
+            <th></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
   <div></div>
 </div>

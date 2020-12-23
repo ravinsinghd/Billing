@@ -84,7 +84,7 @@ export class BillingComponent implements OnInit {
       items: this.currentBill.items,
     };
     this.httpService.postRequest<Bill>("bills", bill).subscribe((bill) => {
-      this.router.navigate([`/billing/print/${bill._id}`]);
+      this.router.navigate([`/billing/print/${bill._id}/false`]);
     });
   }
 
